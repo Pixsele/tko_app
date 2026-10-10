@@ -1,0 +1,73 @@
+.home-container, body {
+    background-color: #212121;
+    font-family: 'Montserrat-ExtraBold', sans-serif;
+    min-height: 100vh;
+
+}
+
+.top-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: relative;
+}
+
+/* Общая стилизация для контейнера */
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    margin-left: 20px; /* Сдвигает вправо */
+}
+
+.logo {
+    font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+    font-size: 36px;
+    font-weight: 800;
+    color: #d6ffa4;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.logo:hover {
+    color: #caff75; /* Цвет при наведении */
+}
+
+/* Стилизация для кнопок навигации */
+.navigation-links {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    margin-left: 250px; /* двигаем вправо */
+}
+
+.logo-container,
+.auth-buttons {
+    flex-shrink: 0; /* Не сжимается */
+}
+
+.nav-link {
+    font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.nav-link-now {
+    font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+    color: #d6ffa4;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #d6ffa4;
+}
