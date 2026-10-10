@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/TKO_dark_gray">
+
+    <TextView
+        android:id="@+id/textProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Профиль"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageAvatar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/cat"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/CircleImageView"
+        app:layout_constraintTop_toBottomOf="@id/textProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+    <TextView
+        android:id="@+id/fio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Имя Фамилия"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@id/imageAvatar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Возраст"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/fio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/age"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfileChangeFIO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Изменить личные данные"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            app:cornerRadius="12sp"
+            android:backgroundTint="@color/TKO_gray"
+            android:gravity="left"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfileChangeAvatar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Изменить фото профиля"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            app:cornerRadius="12sp"
+            app:backgroundTint="@color/TKO_gray"
+            android:gravity="left"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfileAddMeasurements"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавить замеры"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            app:cornerRadius="12sp"
+            app:backgroundTint="@color/TKO_gray"
+            android:gravity="left"/>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfileAddWeighing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Добавить взвешивание"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            app:cornerRadius="12sp"
+            app:backgroundTint="@color/TKO_gray"
+            android:gravity="left"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnProfileSettingApp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Настройки приложения"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            app:cornerRadius="12sp"
+            app:backgroundTint="@color/TKO_gray"
+            android:gravity="left"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

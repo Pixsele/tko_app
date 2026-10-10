@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Закругленные углы (8dp) -->
+    <corners android:radius="8dp" />
+
+    <!-- Сплошная заливка (можно прозрачную или любой цвет) -->
+    <solid android:color="@color/TKO_gray" /> <!-- Серый с прозрачностью -->
+
+    <!-- Рамка (ширина 1dp, цвет из атрибута темы colorPrimary) -->
+    <stroke
+        android:width="1dp"
+        android:color="@color/TKO_gray" />
+</shape>
