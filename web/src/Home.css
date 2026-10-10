@@ -1,0 +1,164 @@
+/* Home.css */
+.home-container, body {
+  background-color: #212121;
+  font-family: 'Montserrat-ExtraBold', sans-serif;
+  min-height: 100vh;
+
+}
+
+.top-bar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  position: relative;
+}
+
+/* Общая стилизация для контейнера */
+.logo-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin-left: 20px; /* Сдвигает вправо */
+}
+
+.logo {
+  font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+  font-size: 36px;
+  font-weight: 800;
+  color: #d6ffa4;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: #caff75; /* Цвет при наведении */
+}
+
+/* Стилизация для кнопок навигации */
+.navigation-links {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  margin-left: 250px; /* двигаем вправо */
+  margin-top: 15px;
+}
+
+.logo-container,
+.auth-buttons {
+  flex-shrink: 0; /* Не сжимается */
+}
+
+.nav-link {
+  font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  text-decoration: none;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.nav-link:hover {
+  color: #d6ffa4;
+}
+
+/* Стилизация для кнопок регистрации и входа */
+.auth-buttons {
+  margin-bottom: 30px;
+  display: flex; /* Размещает кнопки в линию */
+  gap: 10px; /* Отступ между кнопками */
+}
+
+.auth-button {
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #d6ffa4;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: normal;
+  transition: background-color 0.3s ease;
+}
+
+.auth-button:hover {
+  background-color: #caff75;
+}
+
+.main-section {
+  display: flex;
+  justify-content: space-between; /* чтобы разделить на две части */
+  align-items: flex-start; /* выравнивание по верхнему краю */
+  padding: 0 40px; /* отступы по краям */
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* уменьшено расстояние между текстом и кнопкой */
+  align-items: flex-start; /* выравнивание контента слева */
+  padding-left: 20px; /* сдвигаем левую часть немного вправо */
+  height: auto; /* высота адаптируется под контент */
+}
+
+.main-text {
+  font-size: 80px;
+  color: white;
+  font-family: 'Montserrat-ExtraBold', sans-serif; /* Используем шрифт */
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
+  margin: 40px;
+}
+
+.mockup {
+  width: 900px;   /* или любой другой размер */
+  height: auto;   /* чтобы сохранялись пропорции */
+}
+
+.google-play{
+  width: 200px;   /* или любой другой размер */
+  height: auto;
+  margin-left: 60px;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);  /* Полупрозрачный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info{
+  display: flex;
+  gap: 8px;
+  font-family: 'Montserrat-ExtraBold', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color : white;
+  align-items: center;
+  margin-top: -5px;
+}
+
+.user-info img{
+  width: 30px;  /* Или другой размер для иконки */
+  height: 29px;
+  margin-top: -5px;
+}
+
+.user-name {
+  align-items: center;
+  text-decoration: none;
+  color: white;
+}

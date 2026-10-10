@@ -1,0 +1,92 @@
+.login-form {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.login-form h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.login-form input {
+    padding: 12px;
+    border: 2px solid white;
+    background-color: transparent;
+    border-radius: 20px;
+    color: white;
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.login-form input[name="login"],
+.login-form input[name="password"] {
+    width: calc(100% - 27px);
+}
+
+.login-form input:hover {
+    border-color: #d6ffa4;
+    transition: border-color 0.3s ease;
+}
+
+.login-form button[type="submit"] {
+    background-color: #d6ffa4;
+    border: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login-form button[type="submit"]:hover {
+    background-color: #caff75;
+}
+
+.login-form .error {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-form .switch-auth {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+    color: #ccc;
+}
+
+.login-form .register-link {
+    color: #d6ffa4;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.login-form .register-link:hover {
+    color: #caff75;
+}

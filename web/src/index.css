@@ -1,0 +1,181 @@
+
+.screen {
+  background-color: #212121;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+/*.screen .div {
+  background-color: #212121;
+  height: 1050px;
+  position: relative;
+  width: 1680px;
+}
+
+.screen .overlap {
+  background-color: #d6ffa4;
+  border-radius: 20px;
+  height: 49px;
+  left: 1433px;
+  position: absolute;
+  top: 61px;
+  width: 173px;
+}
+
+.screen .text-wrapper {
+  color: #000000;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 55px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 63px;
+}
+
+.screen .overlap-group {
+  background-color: #d6ffa4;
+  border-radius: 20px;
+  height: 49px;
+  left: 1206px;
+  position: absolute;
+  top: 61px;
+  width: 205px;
+}
+
+.screen .text-wrapper-2 {
+  color: #000000;
+  font-family: "Montserrat-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  left: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 9px;
+  width: 169px;
+}
+
+.screen .text-wrapper-3 {
+  color: #d6ffa4;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 40px;
+  font-weight: 800;
+  left: 71px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 60px;
+}
+
+.screen .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 707px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 153px;
+}
+
+.screen .text-wrapper-5 {
+  color: #ffffff;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 523px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 158px;
+}
+
+.screen .text-wrapper-6 {
+  color: #ffffff;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 24px;
+  font-weight: 500;
+  left: 884px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 76px;
+  width: 152px;
+}
+
+.screen .total-kinetic-output {
+  color: #ffffff;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 96px;
+  font-weight: 800;
+  left: 153px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 263px;
+}
+
+.screen .composition {
+  height: 660px;
+  left: 537px;
+  position: absolute;
+  top: 240px;
+  width: 1143px;
+}
+
+.screen .overlap-group-2 {
+  height: 782px;
+  position: relative;
+  top: -11px;
+}
+
+.screen .iphone-space-deep {
+  background-image: url(./body.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 660px;
+  left: 0;
+  position: absolute;
+  top: 11px;
+  width: 548px;
+}
+
+.screen .img {
+  height: 660px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 548px;
+}
+
+.screen .iphone-space-deep-2 {
+  height: 771px;
+  left: 202px;
+  position: absolute;
+  top: 11px;
+  width: 645px;
+}
+
+.screen .iphone-space-deep-3 {
+  height: 756px;
+  left: 491px;
+  position: absolute;
+  top: 0;
+  width: 652px;
+}
+
+.screen .play-instance {
+  height: 96px !important;
+  left: 160px !important;
+  position: absolute !important;
+  top: 720px !important;
+  width: 329px !important;
+}*/

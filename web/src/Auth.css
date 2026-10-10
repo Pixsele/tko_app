@@ -1,0 +1,39 @@
+.auth-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-form input,
+.auth-form select,
+.auth-form button {
+    margin: 8px 0;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.dob-selects {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dob-selects select {
+    flex: 1;
+    margin-right: 5px;
+}
+
+.dob-selects select:last-child {
+    margin-right: 0;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}
