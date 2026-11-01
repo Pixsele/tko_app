@@ -1,37 +1,70 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/TKO_dark_gray">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        >
 
         <!-- Заголовок -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Создание тренировки"
-            android:textSize="24sp"
-            android:textStyle="bold"/>
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"/>
 
         <!-- Название тренировки -->
-        <EditText
-            android:id="@+id/etWorkoutName"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Название тренировки"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginBottom="18dp"
+            app:boxBackgroundColor="@color/TKO_gray"
+            android:textColorHint="#FFFFFF"
+            app:boxCornerRadiusTopStart="18sp"
+            app:boxCornerRadiusTopEnd="18sp"
+            app:boxCornerRadiusBottomStart="18sp"
+            app:boxCornerRadiusBottomEnd="18sp"
+            app:boxStrokeColor="#D6FFA4"
+            app:hintTextColor="#FFFFFF">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etWorkoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Название тренировки"
+                android:inputType="textPassword"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Описание -->
-        <EditText
-            android:id="@+id/etDescription"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="Описание"
-            android:gravity="start"
-            android:layout_marginTop="8dp"/>
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            app:boxBackgroundColor="@color/TKO_gray"
+            android:textColorHint="#FFFFFF"
+            app:boxCornerRadiusTopStart="18sp"
+            app:boxCornerRadiusTopEnd="18sp"
+            app:boxCornerRadiusBottomStart="18sp"
+            app:boxCornerRadiusBottomEnd="18sp"
+            app:boxStrokeColor="#D6FFA4"
+            app:hintTextColor="#FFFFFF">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Описание"
+                android:inputType="textPassword"
+                android:textColor="#FFFFFF" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Контейнер для упражнений -->
         <LinearLayout
@@ -39,15 +72,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="16dp"/>
+            android:layout_marginBottom="18dp" />
 
         <!-- Кнопка добавления упражнения -->
-        <Button
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAddExercise"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
+            android:backgroundTint="#353535"
             android:text="Добавить упражнение"
-            android:layout_marginTop="16dp"/>
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:cornerRadius="18sp"
+            android:layout_marginBottom="18dp"/>
 
         <!-- Сложность -->
         <RadioGroup
@@ -55,34 +93,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginBottom="18dp">
 
             <RadioButton
                 android:id="@+id/rbEasy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EASY"/>
+                android:text="EASY"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:id="@+id/rbMedium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MEDIUM"/>
+                android:text="MEDIUM"
+                android:textColor="@color/white"/>
 
             <RadioButton
                 android:id="@+id/rbHard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HARD"/>
+                android:text="HARD"
+                android:textColor="@color/white"/>
         </RadioGroup>
 
         <!-- Кнопка сохранения -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="60sp"
+            android:backgroundTint="#353535"
             android:text="Сохранить"
-            android:layout_marginTop="24dp"/>
+            android:textColor="#D6FFA4"
+            android:textSize="22sp"
+            app:cornerRadius="18sp" />
 
     </LinearLayout>
 </ScrollView>

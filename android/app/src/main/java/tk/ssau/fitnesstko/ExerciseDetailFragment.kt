@@ -19,7 +19,6 @@ import retrofit2.Response
 import tk.ssau.fitnesstko.databinding.FragmentExerciseDetailBinding
 import tk.ssau.fitnesstko.model.dto.ExerciseDto
 
-// ExerciseDetailFragment.kt
 class ExerciseDetailFragment : Fragment() {
     private var _binding: FragmentExerciseDetailBinding? = null
     private val binding get() = _binding!!
@@ -56,7 +55,6 @@ class ExerciseDetailFragment : Fragment() {
                     if (response.isSuccessful) {
                         response.body()?.let { exercise ->
                             updateUI(exercise)
-                            // Формируем URL динамически
                             loadVideo(exerciseId)
                             loadSvg(exerciseId)
                         }
@@ -82,15 +80,12 @@ class ExerciseDetailFragment : Fragment() {
     private fun loadVideo(exerciseId: Long) {
         val videoUrl = "${ApiService.BASE_URL}api/exercise/video/$exerciseId"
 
-        // 1. Создаем адаптер для OkHttp
         val dataSourceFactory = OkHttpDataSource.Factory(ApiService.client)
 
-        // 2. Собираем медиа-источник
         val mediaItem = MediaItem.fromUri(videoUrl)
         val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
             .createMediaSource(mediaItem)
 
-        // 3. Настраиваем плеер
         val player = ExoPlayer.Builder(requireContext())
             .setMediaSourceFactory(ProgressiveMediaSource.Factory(dataSourceFactory))
             .build()

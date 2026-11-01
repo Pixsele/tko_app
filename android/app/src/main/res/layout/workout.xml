@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -29,7 +29,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- Блок с месяцем и кнопками -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,11 +62,10 @@
                         app:tint="#FFFFFF" />
                 </LinearLayout>
 
-                <!-- Календарь -->
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/TKO_gray"/>
+                    android:background="@color/TKO_gray" />
 
                 <androidx.gridlayout.widget.GridLayout
                     android:id="@+id/calendarGrid"
@@ -91,8 +89,7 @@
             android:textColor="@color/white"
             android:textSize="22sp"
             app:cornerRadius="12sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -114,15 +111,14 @@
                     android:textSize="24sp"
                     android:textStyle="bold"
                     android:layout_marginBottom="8dp"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FFFFFF" />
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/weightChart"
                     android:layout_width="match_parent"
                     android:layout_height="300dp"
                     android:background="@drawable/rounded_chart_background"
-                    android:clipToOutline="true"
-                    />
+                    android:clipToOutline="true" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

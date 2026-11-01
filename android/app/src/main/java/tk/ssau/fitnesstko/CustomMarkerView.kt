@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
+/**
+ * Точка на графике с информацией о весе
+ */
 class CustomMarkerView(context: Context, layoutResource: Int) :
     MarkerView(context, layoutResource) {
 

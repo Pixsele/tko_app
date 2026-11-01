@@ -1,4 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Base.Theme.FitnessTKO" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.FitnessTKO" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="android:statusBarColor">@color/TKO_dark_gray</item>
+        <item name="android:navigationBarColor">@color/TKO_dark_gray</item>
     </style>
 </resources>

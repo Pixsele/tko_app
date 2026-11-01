@@ -91,11 +91,9 @@ class FragmentWorkout : Fragment(R.layout.workout) {
             return
         }
 
-        // Всегда оставляем первые 6 точек, если их меньше или равно 6
         val displayedWeights = if (allWeights.size <= 6) {
             allWeights
         } else {
-            // Берем последние 6 измерений
             allWeights.takeLast(6)
         }
 

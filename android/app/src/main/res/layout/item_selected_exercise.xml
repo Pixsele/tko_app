@@ -2,20 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:background="@drawable/exercise_shape"
+    android:layout_marginBottom="10sp">
 
-    <ImageView
-        android:id="@+id/ivExercise"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/cat"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp">
+
+        <ImageView
+            android:id="@+id/ivExercise"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:contentDescription="Диаграмма мышц"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cat"/>
+    </androidx.cardview.widget.CardView>
 
     <TextView
         android:id="@+id/tvExerciseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:textSize="16sp"/>
-
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        />
 </LinearLayout>

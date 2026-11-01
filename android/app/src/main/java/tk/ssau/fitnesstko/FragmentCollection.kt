@@ -12,7 +12,7 @@ import retrofit2.Response
 import tk.ssau.fitnesstko.databinding.CollectionBinding
 import tk.ssau.fitnesstko.model.dto.WorkoutForPageDto
 
-class FragmentCollection : Fragment() {
+class FragmentCollection(private val authManager: AuthManager) : Fragment() {
 
     private var _binding: CollectionBinding? = null
     private val binding get() = _binding!!
@@ -36,7 +36,6 @@ class FragmentCollection : Fragment() {
     }
 
     private fun setupRecyclers() {
-        // Настройка категорий
         val categories = listOf("Тренировки", "Программы")
         binding.rvCategories.apply {
             adapter = CategoriesAdapter(categories)
@@ -47,13 +46,13 @@ class FragmentCollection : Fragment() {
             )
         }
 
-        // Настройка списка тренировок
         workoutAdapter = WorkoutAdapter(
             workouts = emptyList(),
-            fragmentManager = parentFragmentManager, // Передаем родительский FragmentManager
+            fragmentManager = parentFragmentManager,
             onDataUpdated = { updatedWorkout ->
                 (activity as? MainActivity)?.prefs?.updateLocalWorkout(updatedWorkout)
-            }
+            },
+            authManager = authManager
         )
 
         binding.rvWorkouts.apply {

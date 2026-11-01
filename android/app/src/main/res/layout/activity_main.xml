@@ -17,8 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:paddingLeft="16dp"
-        android:paddingRight="16dp"
-        />
+        android:paddingRight="16dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -32,6 +31,5 @@
         android:background="@drawable/rounded_bg"
         app:itemIconTint="@color/bottom_nav_colors"
         app:itemTextColor="@color/bottom_nav_colors"
-        style="@style/BottomNavigationStyle"
-        />
+        style="@style/BottomNavigationStyle" />
 </androidx.constraintlayout.widget.ConstraintLayout>

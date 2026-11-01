@@ -18,10 +18,8 @@ class ExerciseAdapter(
 
         fun bind(exercise: ExerciseForPageDto) {
             with(binding) {
-                // Установка названия упражнения
                 tvExerciseName.text = exercise.name
 
-                // Загрузка изображения через Glide с обработкой ошибок
                 Glide.with(root.context)
                     .load("${ApiService.BASE_URL}api/exercise/image/${exercise.id}")
                     .placeholder(R.drawable.ic_placeholder)
@@ -29,7 +27,6 @@ class ExerciseAdapter(
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(ivExercise)
 
-                // Обработка клика
                 root.setOnClickListener {
                     onExerciseClick(exercise)
                 }
@@ -37,7 +34,6 @@ class ExerciseAdapter(
         }
     }
 
-    // Обновление списка упражнений
     fun updateExercises(newExercises: List<ExerciseForPageDto>) {
         exercises = newExercises
         notifyDataSetChanged()
