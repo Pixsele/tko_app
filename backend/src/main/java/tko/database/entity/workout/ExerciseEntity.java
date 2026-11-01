@@ -13,7 +13,11 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Table(name = "exercise")
+@Table(name = "exercise", indexes = {
+        @Index(name = "idx_exercise_like_count", columnList = "like_count"),
+        @Index(name = "idx_exercise_usage_count", columnList = "usage_count"),
+        @Index(name = "idx_exercise_difficult", columnList = "difficult")
+})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -42,9 +46,17 @@ public class ExerciseEntity {
     @Column(name = "video_url")
     private String videoUrl;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
-
+    /** Рейтинг. */
     @Column(name = "like_count")
     private Integer likeCount;
+
+    /** Популярность: сколько раз упражнение добавлено в тренировки. */
+    @Column(name = "usage_count", nullable = false, columnDefinition = "integer default 0")
+    private Integer usageCount = 0;
+
+    @Column(name = "image_updated")
+    private LocalDateTime imageUpdated;
+
+    @Column(name = "video_updated")
+    private LocalDateTime videoUpdated;
 }

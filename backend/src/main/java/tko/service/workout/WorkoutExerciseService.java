@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 import tko.database.entity.workout.WorkoutExerciseEntity;
 import tko.database.repository.workout.ExerciseRepository;
@@ -14,7 +15,23 @@ import tko.model.mapper.workout.WorkoutExerciseMapper;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
+
+/**
+ * Сервис управления упражнениями, привязанными к конкретной тренировке.
+ * Дополнительно ведёт счётчик популярности упражнения (exercise.usage_count):
+ * +1 при добавлении в тренировку, -1 при удалении, перенос при смене упражнения.
+ * <p>
+ * Методы:
+ * <ul>
+ *     <li>{@link #create(WorkoutExerciseDTO)} — добавление нового упражнения в тренировку</li>
+ *     <li>{@link #read(Long)} — получение упражнения по идентификатору</li>
+ *     <li>{@link #update(Long, WorkoutExerciseDTO)} — обновление информации об упражнении</li>
+ *     <li>{@link #delete(Long)} — удаление упражнения из тренировки</li>
+ *     <li>{@link #findAllByWorkoutId(Long)} — получение всех упражнений для заданной тренировки</li>
+ * </ul>
+ */
 
 @Service
 public class WorkoutExerciseService {
@@ -32,6 +49,7 @@ public class WorkoutExerciseService {
         this.workoutExerciseMapper = workoutExerciseMapper;
     }
 
+    @Transactional
     public WorkoutExerciseDTO create(WorkoutExerciseDTO workoutExerciseDTO) {
         if (workoutExerciseDTO.getId() != null) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Id must be null");
@@ -50,9 +68,13 @@ public class WorkoutExerciseService {
         }
 
         WorkoutExerciseEntity workoutExerciseEntity = workoutExerciseMapper.toEntity(workoutExerciseDTO);
-        Integer count_of_exercise = workoutExerciseRepository.findAllByWorkout_Id(workoutExerciseDTO.getWorkoutId()).size();
+
+        Integer count_of_exercise = workoutExerciseRepository.countByWorkout_Id(workoutExerciseDTO.getWorkoutId());
         workoutExerciseEntity.setExerciseOrder(count_of_exercise);
         WorkoutExerciseEntity result = workoutExerciseRepository.save(workoutExerciseEntity);
+
+        exerciseRepository.incrementUsageCount(workoutExerciseDTO.getExerciseId());
+
         return workoutExerciseMapper.toDTO(result);
     }
 
@@ -64,6 +86,7 @@ public class WorkoutExerciseService {
         return workoutExerciseMapper.toDTO(workoutExerciseEntity);
     }
 
+    @Transactional
     public WorkoutExerciseDTO update(Long id, WorkoutExerciseDTO workoutExerciseDTO) {
         if (id == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Id must not be null");
@@ -82,12 +105,24 @@ public class WorkoutExerciseService {
         }
 
         WorkoutExerciseEntity workoutExerciseEntity = workoutExerciseRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Id not found"));
+        Long oldExerciseId = workoutExerciseEntity.getExercise() != null ? workoutExerciseEntity.getExercise().getId() : null;
 
         workoutExerciseMapper.updateEntity(workoutExerciseDTO, workoutExerciseEntity);
         WorkoutExerciseEntity savedEntity = workoutExerciseRepository.save(workoutExerciseEntity);
+
+        // Если в тренировке заменили упражнение — переносим популярность
+        Long newExerciseId = workoutExerciseDTO.getExerciseId();
+        if (!Objects.equals(oldExerciseId, newExerciseId)) {
+            if (oldExerciseId != null) {
+                exerciseRepository.decrementUsageCount(oldExerciseId);
+            }
+            exerciseRepository.incrementUsageCount(newExerciseId);
+        }
+
         return workoutExerciseMapper.toDTO(savedEntity);
     }
 
+    @Transactional
     public WorkoutExerciseDTO delete(Long id) {
         if (id == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Id must not be null");
@@ -98,6 +133,7 @@ public class WorkoutExerciseService {
         Integer count_of_exercise = deleteEntity.getExerciseOrder();
 
         List<WorkoutExerciseEntity> list = workoutExerciseRepository.findAllByWorkout_Id(deleteEntity.getWorkout().getId());
+        list.sort(Comparator.comparing(WorkoutExerciseEntity::getExerciseOrder));
 
         for(WorkoutExerciseEntity workoutExerciseEntity : list) {
             if(workoutExerciseEntity.getExerciseOrder() >= count_of_exercise) {
@@ -107,6 +143,9 @@ public class WorkoutExerciseService {
             }
         }
 
+        if (deleteEntity.getExercise() != null) {
+            exerciseRepository.decrementUsageCount(deleteEntity.getExercise().getId());
+        }
 
         return workoutExerciseMapper.toDTO(deleteEntity);
     }
