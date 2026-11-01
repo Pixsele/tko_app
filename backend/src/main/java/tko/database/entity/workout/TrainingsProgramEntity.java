@@ -31,4 +31,7 @@ public class TrainingsProgramEntity {
 
     @OneToMany(mappedBy = "program", cascade = CascadeType.ALL)
     private List<WorkoutProgramEntity> workoutPrograms;
+
+    @Column(name = "like_count")
+    private Integer likeCount;
 }

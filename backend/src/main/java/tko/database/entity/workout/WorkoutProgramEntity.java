@@ -25,5 +25,5 @@ public class WorkoutProgramEntity {
     @JoinColumn(name = "workout_id")
     private WorkoutEntity workout;
 
-    private LocalDate date;
+    private Integer workoutOrder;
 }
