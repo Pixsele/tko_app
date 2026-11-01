@@ -18,6 +18,10 @@ class SharedViewModel : ViewModel() {
     fun clearSelectedExercises() {
         _selectedExercises.value = emptyList()
     }
+
+    fun isExerciseSelected(exerciseId: Long?): Boolean {
+        return _selectedExercises.value?.any { it.exercise.id == exerciseId } ?: false
+    }
 }
 
 data class ExerciseWithParams(

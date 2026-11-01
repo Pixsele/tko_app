@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/TKO_dark_gray"
         app:tint="@color/white"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside" />
 
     <TextView
         android:id="@+id/tvCollection"
@@ -35,7 +35,7 @@
         android:paddingBottom="10dp"
         app:layout_constraintStart_toEndOf="@+id/ibAddExercises"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvCollection"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_category"/>
+        tools:listitem="@layout/item_category" />
 
     <!-- CardView с поиском - добавляем ID для ссылки -->
     <androidx.cardview.widget.CardView
@@ -75,7 +75,7 @@
                 android:layout_height="24dp"
                 android:layout_marginEnd="12dp"
                 android:src="@drawable/ic_search"
-                app:tint="#FFFFFF"/>
+                app:tint="#FFFFFF" />
 
             <EditText
                 android:id="@+id/etSearchExercises"
@@ -87,7 +87,7 @@
                 android:textColorHint="#B3FFFFFF"
                 android:textSize="22sp"
                 android:imeOptions="actionSearch"
-                android:singleLine="true"/>
+                android:singleLine="true" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -103,7 +103,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_workout"
-        />
+        tools:listitem="@layout/item_workout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

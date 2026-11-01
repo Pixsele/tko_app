@@ -15,6 +15,9 @@ import tk.ssau.fitnesstko.databinding.FragmentCreateWorkoutBinding
 import tk.ssau.fitnesstko.model.dto.WorkoutDto
 import tk.ssau.fitnesstko.model.dto.WorkoutExerciseDto
 
+/**
+ * Фрагмент для создания новой тренировки
+ */
 class CreateWorkoutFragment : Fragment() {
 
     private var _binding: FragmentCreateWorkoutBinding? = null
@@ -39,11 +42,12 @@ class CreateWorkoutFragment : Fragment() {
         setupObservers()
         setupDifficultyGroup()
     }
+
     private fun setupUI() {
         binding.btnAddExercise.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragment, ExercisePickerFragment())
-                .addToBackStack(null).commit()
+                .addToBackStack("create_workout").commit()
         }
 
         binding.btnSave.setOnClickListener {
@@ -104,7 +108,7 @@ class CreateWorkoutFragment : Fragment() {
             name = binding.etWorkoutName.text.toString(),
             description = binding.etDescription.text.toString(),
             difficult = difficulty,
-            likeCount = 0,
+            likeCount = null,
             id = null
         )
 
@@ -135,7 +139,7 @@ class CreateWorkoutFragment : Fragment() {
                     exerciseId = it,
                     sets = exerciseWithParams.sets,
                     reps = exerciseWithParams.reps,
-                    distance = 1.0,
+                    distance = 0.0,
                     duration = 1.0,
                     id = null,
                     restTime = exerciseWithParams.rest,

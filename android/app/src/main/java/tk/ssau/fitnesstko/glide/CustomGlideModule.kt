@@ -10,6 +10,9 @@ import com.bumptech.glide.module.AppGlideModule
 import tk.ssau.fitnesstko.ApiService
 import java.io.InputStream
 
+/**
+ * Класс для интеграции Glide с OkHttp для выполнения сетевых запросов с авторизацией
+ */
 @GlideModule
 class CustomGlideModule : AppGlideModule() {
     override fun registerComponents(context: Context, glide: Glide, registry: Registry) {

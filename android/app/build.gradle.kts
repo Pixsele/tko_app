@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -49,41 +50,40 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.javafaker)
-    implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.threetenabp)
 
-    implementation("com.jakewharton.threetenabp:threetenabp:1.4.4")
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    implementation(libs.kotlinx.coroutines.core)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+    implementation(libs.androidx.gridlayout)
 
-    implementation("androidx.gridlayout:gridlayout:1.0.0")
+    implementation(libs.mpandroidchart)
 
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation(libs.retrofit)
 
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation(libs.converter.gson)
 
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation(libs.androidx.security.crypto)
 
-    implementation("androidx.security:security-crypto:1.1.0-alpha06")
+    implementation(libs.okhttp)
 
-    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+    implementation(libs.logging.interceptor)
 
-    implementation ("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation(libs.androidsvg)
 
-    implementation("com.caverock:androidsvg:1.4")
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation(libs.glide)
 
-    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.okhttp3.integration)
+    kapt(libs.compiler)
 
-    implementation ("com.github.bumptech.glide:okhttp3-integration:4.16.0")
-    kapt("com.github.bumptech.glide:compiler:4.16.0")
-
-    implementation("androidx.media3:media3-exoplayer:1.3.1")
-    implementation("androidx.media3:media3-ui:1.3.1")
-    implementation("androidx.media3:media3-common:1.3.1")
-    implementation("androidx.media3:media3-datasource-okhttp:1.3.1")
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+    implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.media3.datasource.okhttp)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

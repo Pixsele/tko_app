@@ -30,8 +30,7 @@
                 android:id="@+id/etDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clickable="true"
-                android:focusable="false"/>
+                android:clickable="true" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -55,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="none"
                 android:clickable="true"
-                android:focusable="false"/>
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -68,8 +67,7 @@
             android:textColor="#D6FFA4"
             android:textSize="22sp"
             android:backgroundTint="#353535"
-            app:cornerRadius="18sp"
-            />
+            app:cornerRadius="18sp" />
 
     </LinearLayout>
 </ScrollView>

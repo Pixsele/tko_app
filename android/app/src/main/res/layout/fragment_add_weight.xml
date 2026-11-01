@@ -19,7 +19,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="24dp"
             android:textColor="#FFFFFF"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <TextView
             android:id="@+id/tvLastWeight"
@@ -43,8 +43,7 @@
             app:boxCornerRadiusBottomStart="18sp"
             app:boxCornerRadiusBottomEnd="18sp"
             app:boxStrokeColor="#D6FFA4"
-            app:hintTextColor="#FFFFFF"
-            >
+            app:hintTextColor="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etWeight"
@@ -54,8 +53,7 @@
                 android:inputType="numberDecimal"
                 android:textColor="#FFFFFF"
                 android:textSize="22sp"
-                android:textCursorDrawable="@color/black"
-                />
+                android:textCursorDrawable="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -67,8 +65,7 @@
             android:textColor="#D6FFA4"
             android:textSize="22sp"
             android:backgroundTint="#353535"
-            app:cornerRadius="18sp"
-            />
+            app:cornerRadius="18sp" />
 
     </LinearLayout>
 </ScrollView>

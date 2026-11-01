@@ -17,12 +17,11 @@ class ExerciseDetailAdapter(
     inner class ExerciseViewHolder(private val binding: ItemExerciseDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(exercise: ExerciseDto) { // Изменено на ExerciseDto
+        fun bind(exercise: ExerciseDto) {
             binding.root.setOnClickListener {
                 openExerciseDetails(exercise.id)
             }
 
-            // Загрузка данных в элементы списка
             binding.tvExerciseName.text = exercise.name
             Glide.with(binding.root.context)
                 .load("${ApiService.BASE_URL}api/exercise/image/${exercise.id}")

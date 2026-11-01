@@ -19,7 +19,7 @@
             android:textStyle="bold"
             android:layout_marginBottom="24dp"
             android:textColor="@color/white"
-            android:gravity="center"/>
+            android:gravity="center" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -32,8 +32,7 @@
             app:boxCornerRadiusBottomStart="18sp"
             app:boxCornerRadiusBottomEnd="18sp"
             app:boxStrokeColor="#D6FFA4"
-            app:hintTextColor="#FFFFFF"
-            >
+            app:hintTextColor="#FFFFFF">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etFirstName"
@@ -41,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Имя"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@color/black"/>
+                android:textCursorDrawable="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -63,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Фамилия"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@color/black"/>
+                android:textCursorDrawable="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +85,7 @@
                 android:hint="Возраст"
                 android:inputType="number"
                 android:textColor="@color/white"
-                android:textCursorDrawable="@color/black"/>
+                android:textCursorDrawable="@color/black" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
@@ -98,8 +97,7 @@
             android:textColor="#D6FFA4"
             android:textSize="22sp"
             android:backgroundTint="#353535"
-            app:cornerRadius="18sp"
-            />
+            app:cornerRadius="18sp" />
 
     </LinearLayout>
 </ScrollView>

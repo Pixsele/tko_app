@@ -26,10 +26,7 @@ class ExerciseParamsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(requireActivity())[SharedViewModel::class.java]
-        exercise = arguments?.getParcelable("selected_exercise") ?: run {
-            parentFragmentManager.popBackStack()
-            return
-        }
+        exercise = arguments?.getParcelable("selected_exercise") ?: return
 
         binding.btnSaveParams.setOnClickListener {
             saveParams()
@@ -43,7 +40,9 @@ class ExerciseParamsFragment : Fragment() {
 
         exercise?.let {
             viewModel.addExerciseWithParams(it, sets, reps, rest)
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, CreateWorkoutFragment())
+                .commit()
         }
     }
 }

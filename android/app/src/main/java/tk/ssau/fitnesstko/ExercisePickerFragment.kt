@@ -74,7 +74,7 @@ class ExercisePickerFragment : Fragment(R.layout.fragment_exercise_picker) {
                     putParcelable("selected_exercise", exercise)
                 }
             })
-            .addToBackStack("exercise_params")
+            .addToBackStack(null)
             .commit()
     }
 

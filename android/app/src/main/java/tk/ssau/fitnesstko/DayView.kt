@@ -6,6 +6,9 @@ import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatTextView
 
+/**
+ * Круг вокруг дня на календаре
+ */
 class DayView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
@@ -13,9 +16,9 @@ class DayView @JvmOverloads constructor(
 
     enum class WorkoutState {
         NONE,
-        PLANNED,    // Пунктирная серая рамка
-        TODAY,      // Сплошная зеленая рамка
-        COMPLETED   // Сплошная синяя заливка
+        PLANNED,
+        TODAY,
+        COMPLETED
     }
 
     var state: WorkoutState = WorkoutState.NONE
@@ -24,10 +27,9 @@ class DayView @JvmOverloads constructor(
             updateAppearance()
         }
 
-    // Цвета из ресурсов
-    private val plannedColor = Color.parseColor("#9E9E9E") // Серый
-    private val todayColor = Color.parseColor("#D6FFA4")   // Зеленый
-    private val completedColor = Color.parseColor("#FFFFFF") // Синий
+    private val plannedColor = Color.parseColor("#9E9E9E")
+    private val todayColor = Color.parseColor("#D6FFA4")
+    private val completedColor = Color.parseColor("#FFFFFF")
 
     init {
         setTextColor(Color.BLACK)
@@ -53,7 +55,7 @@ class DayView @JvmOverloads constructor(
                 color,
                 5f.dpToPx(),
                 3f.dpToPx()
-            ) // Пунктир: 10px длина, 5px промежуток
+            )
             setColor(Color.TRANSPARENT)
         }
     }
@@ -61,7 +63,7 @@ class DayView @JvmOverloads constructor(
     private fun createSolidBorderDrawable(color: Int): GradientDrawable {
         return GradientDrawable().apply {
             shape = GradientDrawable.OVAL
-            setStroke(3.dpToPx(), color) // Сплошная линия
+            setStroke(3.dpToPx(), color)
             setColor(Color.TRANSPARENT)
         }
     }

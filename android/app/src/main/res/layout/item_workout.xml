@@ -33,7 +33,7 @@
         app:layout_constraintEnd_toStartOf="@+id/ivLike"
         app:layout_constraintTop_toTopOf="@id/ivLike"
         android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivLike"

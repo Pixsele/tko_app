@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.caverock.androidsvg.SVG
@@ -25,6 +26,8 @@ class WorkoutDetailFragment : Fragment() {
     private lateinit var exerciseAdapter: ExerciseDetailAdapter
     private var workoutId: Long = -1L
 
+    private lateinit var workoutExercises: List<WorkoutExerciseDto>
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,6 +44,22 @@ class WorkoutDetailFragment : Fragment() {
         setupToolbar()
         setupRecyclerView()
         loadWorkoutData()
+
+        binding.btnStartWorkout.setOnClickListener {
+            if (::workoutExercises.isInitialized && workoutExercises.isNotEmpty()) {
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.flFragment, WorkoutExecutionFragment().apply {
+                        arguments = Bundle().apply {
+                            putParcelableArrayList("exercises", ArrayList(workoutExercises))
+                            putString("workoutName", binding.tvWorkoutName.text.toString())
+                        }
+                    })
+                    .addToBackStack(null)
+                    .commit()
+            } else {
+                Toast.makeText(context, "Упражнения не загружены", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setupToolbar() {
@@ -104,6 +123,7 @@ class WorkoutDetailFragment : Fragment() {
                 ) {
                     if (response.isSuccessful) {
                         response.body()?.let { exercises ->
+                            workoutExercises = exercises
                             loadExerciseDetails(exercises)
                         }
                     }
@@ -152,7 +172,7 @@ class WorkoutDetailFragment : Fragment() {
                             binding.ivMuscleDiagram.setImageDrawable(
                                 PictureDrawable(svg.renderToPicture())
                             )
-                        } catch (e: SVGParseException) {
+                        } catch (_: SVGParseException) {
                             binding.ivMuscleDiagram.setImageResource(R.drawable.cat)
                         }
                     }
