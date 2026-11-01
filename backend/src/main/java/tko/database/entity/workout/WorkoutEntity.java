@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "workoutExercises")
 public class WorkoutEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,4 +33,7 @@ public class WorkoutEntity {
 
     @OneToMany(mappedBy = "workout", cascade = CascadeType.ALL)
     private List<WorkoutExerciseEntity> workoutExercises;
+
+    @Column(name = "like_count")
+    private Integer likeCount;
 }

@@ -1,5 +1,6 @@
 package tko.model.dto.nutrition;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class KcalTrackerDTO {
     private Long id;
+    @NotNull
     private Long userId;
+    @NotNull
     private LocalDate date;
-    private List<KcalProductDTO> kcalProducts;
 }

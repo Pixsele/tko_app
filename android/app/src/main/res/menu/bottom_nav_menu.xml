@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/miWorkout"
+        android:title=""
+        android:icon="@drawable/group_8"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/miCollection"
+        android:title=""
+        android:icon="@drawable/group_9"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/miFood"
+        android:title=""
+        android:icon="@drawable/group_13"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/miProfile"
+        android:title=""
+        android:icon="@drawable/group_12"
+        app:showAsAction="ifRoom" />
+</menu>

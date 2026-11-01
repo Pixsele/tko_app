@@ -32,6 +32,6 @@ public class PlannedWorkoutEntity {
     private WorkoutStatus status;
 
     public enum WorkoutStatus {
-        PLANNED, COMPLETED, SKIPPED
+        PLANNED, COMPLETED
     }
 }

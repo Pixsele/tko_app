@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Панель фильтров каталога упражнений -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Фильтры"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <!-- Группы мышц -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Группы мышц"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgMuscles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchMatchAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Задействует все выбранные мышцы" />
+
+            <!-- Сложность -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Сложность"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgDifficulty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" />
+
+            <!-- Инвентарь -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Инвентарь"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/cgEquipment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEquipmentAny"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Неважно" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEquipmentWith"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="С инвентарём" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipEquipmentWithout"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Без инвентаря" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Рейтинг -->
+            <TextView
+                android:id="@+id/tvMinLikes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Рейтинг: любой"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderMinLikes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="5"
+                android:valueFrom="0"
+                android:valueTo="100" />
+
+            <!-- Популярность -->
+            <TextView
+                android:id="@+id/tvMinUsage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Популярность: любая"
+                android:textAppearance="?attr/textAppearanceSubtitle2" />
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/sliderMinUsage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stepSize="5"
+                android:valueFrom="0"
+                android:valueTo="100" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchOnlyLiked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Только понравившиеся" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Сбросить" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Показать" />
+    </LinearLayout>
+</LinearLayout>

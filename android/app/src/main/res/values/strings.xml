@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">FitnessTKO</string>
+    <string name="setting_profilename">Профиль</string>
+    <string name="fio">Имя Фамилия</string>
+    <string name="age">Возраст</string>
+    <string name="btnChangeFIO">Изменить личные данные</string>
+    <string name="btnChangeAvatar">Изменить фото профиля</string>
+    <string name="btnProfileAddMeasurements">Добавить замеры</string>
+    <string name="btnProfileAddWeighing">Добавить взвешивание</string>
+    <string name="btnProfileSettingApp">Настройки приложения</string>
+</resources>

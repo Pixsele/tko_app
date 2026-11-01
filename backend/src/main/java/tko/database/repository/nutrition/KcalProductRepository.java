@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface KcalProductRepository extends JpaRepository<KcalProductEntity, Long> {
+    boolean existsByKcalTracker_IdAndProduct_Id(Long kcalTrackerId, Long productId);
 }
