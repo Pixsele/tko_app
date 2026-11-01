@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.math.BigDecimal;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class NutritionProgramDTO {
+public class ProductForPageDTO {
     private Long id;
-    private String description;
     private String name;
-    private String type;
-    private String createdBy;
-    private LocalDateTime createdAt;
+    private Integer calories;
+    private Integer percentOfTarget;
+    private String unit;
+    private BigDecimal portion;
 }

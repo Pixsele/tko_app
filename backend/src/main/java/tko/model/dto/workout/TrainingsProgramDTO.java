@@ -1,22 +1,23 @@
 package tko.model.dto.workout;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class TrainingsProgramDTO {
     private Long id;
+    @NotBlank
     private String description;
+    @NotBlank
     private String name;
-    private String type;
+    @NotBlank
     private String difficult;
-    private String createdBy;
-    private LocalDateTime createdAt;
-    private List<WorkoutProgramDTO> workoutPrograms;
+    private Integer likeCount;
 }
