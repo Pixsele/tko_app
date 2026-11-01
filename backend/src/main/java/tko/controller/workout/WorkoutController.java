@@ -1,12 +1,18 @@
 package tko.controller.workout;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedModel;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tko.model.dto.workout.WorkoutDTO;
+import tko.model.dto.workout.WorkoutForPageDTO;
 import tko.service.workout.WorkoutService;
+
 
 @RestController
 @RequestMapping("/workout")
@@ -20,7 +26,7 @@ public class WorkoutController {
     }
 
     @PostMapping
-    public ResponseEntity<WorkoutDTO> createWorkout(@RequestBody WorkoutDTO workoutDTO) {
+    public ResponseEntity<WorkoutDTO> createWorkout(@Valid @RequestBody WorkoutDTO workoutDTO) {
         WorkoutDTO createdWorkout = workoutService.createWorkout(workoutDTO);
         return new ResponseEntity<>(createdWorkout,HttpStatus.CREATED);
     }
@@ -31,17 +37,22 @@ public class WorkoutController {
         return new ResponseEntity<>(workoutDTO,HttpStatus.OK);
     }
 
-    @PutMapping
-    public ResponseEntity<WorkoutDTO> updateWorkout(@RequestBody WorkoutDTO workoutDTO) {
-        WorkoutDTO updatedWorkout = workoutService.updateWorkout(workoutDTO);
+    @PutMapping("/{id}")
+    public ResponseEntity<WorkoutDTO> updateWorkout(@PathVariable Long id, @Valid @RequestBody WorkoutDTO workoutDTO) {
+        WorkoutDTO updatedWorkout = workoutService.updateWorkout(id,workoutDTO);
         return new ResponseEntity<>(updatedWorkout,HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public ResponseEntity<WorkoutDTO> deleteWorkout(@RequestBody WorkoutDTO workoutDTO) {
-        WorkoutDTO deletedWorkout = workoutService.deleteWorkoutById(workoutDTO.getId());
+    @DeleteMapping("/{id}")
+    public ResponseEntity<WorkoutDTO> deleteWorkout(@PathVariable Long id) {
+        WorkoutDTO deletedWorkout = workoutService.deleteWorkoutById(id);
         return new ResponseEntity<>(deletedWorkout,HttpStatus.OK);
     }
 
+    @GetMapping("/page")
+    public PagedModel<WorkoutForPageDTO> readWorkoutPage(Pageable pageable) {
+        Page<WorkoutForPageDTO> workoutDTOPage = workoutService.readWorkoutWithPageable(pageable);
 
+        return new PagedModel<>(workoutDTOPage);
+    }
 }
