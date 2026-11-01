@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Service
 public class AuthService {
@@ -35,7 +36,7 @@ public class AuthService {
         }
         usersEntity.setLogin(registerUsersDTO.getLogin());
         usersEntity.setPassword(passwordEncoder.encode(registerUsersDTO.getPassword()));
-        usersEntity.setAge(registerUsersDTO.getAge());
+        usersEntity.setBirthDay(registerUsersDTO.getBirthDay());
         usersEntity.setWeight(registerUsersDTO.getWeight());
         usersEntity.setHeight(registerUsersDTO.getHeight());
         usersEntity.setTargetKcal(1900);
@@ -43,6 +44,7 @@ public class AuthService {
         usersEntity.setCurrentTrainingProgram(null);
         usersEntity.setCurrentNutritionProgram(null);
         usersEntity.setCreatedAt(LocalDateTime.now());
+        usersEntity.setRole("ROLE_USER");
 
         UsersEntity savedUser = usersRepository.save(usersEntity);
 

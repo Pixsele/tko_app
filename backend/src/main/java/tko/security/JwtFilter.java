@@ -1,5 +1,6 @@
 package tko.security;
 
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import tko.database.entity.user.UsersEntity;
 import tko.database.repository.user.UsersRepository;
 import jakarta.servlet.FilterChain;
@@ -13,6 +14,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Component
 public class JwtFilter extends OncePerRequestFilter{
@@ -33,7 +35,14 @@ public class JwtFilter extends OncePerRequestFilter{
             UsersEntity usersEntity = usersRepository.findByLogin(login);
 
             if(usersEntity != null && jwtUtil.validateToken(token, usersEntity)) {
-                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(usersEntity.getLogin(), null, new ArrayList<>());
+
+                String role = jwtUtil.extractRole(token);
+
+                UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+                        usersEntity.getLogin(),
+                        null,
+                        Collections.singleton(new SimpleGrantedAuthority(role))
+                );
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
 

@@ -54,6 +54,7 @@ public class JwtUtil {
     public String generateToken(UsersEntity user) {
         return Jwts.builder()
                 .subject(user.getLogin())
+                .claim("role", user.getRole())
                 .issuedAt(Date.from(Instant.now()))
                 //TODO
                 .expiration(Date.from(Instant.now().plusSeconds(3600)))
@@ -65,5 +66,14 @@ public class JwtUtil {
         final String login = extractLogin(token);
         return (login.equals(user.getLogin()) && !isTokenExpired(token));
 
+    }
+
+    public String extractRole(String token) {
+        Claims claims = extractAllClaims(token);
+        String role = claims.get("role", String.class);
+        if (role == null || role.isEmpty()) {
+            return "ROLE_USER";
+        }
+        return role.startsWith("ROLE_") ? role : "ROLE_" + role;
     }
 }

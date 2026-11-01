@@ -1,11 +1,12 @@
 package tko.service;
 
 
-import org.apache.catalina.User;
-import tko.database.entity.nutrition.NutritionProgramEntity;
+import tko.database.entity.workout.CurrentTrainingProgramEntity;
+import tko.database.repository.workout.CurrentTrainingProgramRepository;
+import tko.legacy.NutritionProgramEntity;
 import tko.database.entity.workout.TrainingsProgramEntity;
 import tko.database.entity.user.UsersEntity;
-import tko.database.repository.nutrition.NutritionProgramRepository;
+import tko.legacy.NutritionProgramRepository;
 import tko.database.repository.workout.TrainingsProgramRepository;
 import tko.database.repository.user.UsersRepository;
 import tko.model.dto.user.UsersDTO;
@@ -14,19 +15,23 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class UsersService {
     private final UsersRepository usersRepository;
     private final TrainingsProgramRepository trainingsProgramRepository;
     private final NutritionProgramRepository nutritionProgramRepository;
     private final UsersMapper usersMapper;
+    private final CurrentTrainingProgramRepository currentTrainingProgramRepository;
 
     @Autowired
-    public UsersService(UsersRepository usersRepository, TrainingsProgramRepository trainingsProgramRepository, NutritionProgramRepository nutritionProgramRepository, UsersMapper usersMapper) {
+    public UsersService(UsersRepository usersRepository, TrainingsProgramRepository trainingsProgramRepository, NutritionProgramRepository nutritionProgramRepository, UsersMapper usersMapper, CurrentTrainingProgramRepository currentTrainingProgramRepository) {
         this.usersRepository = usersRepository;
         this.trainingsProgramRepository = trainingsProgramRepository;
         this.nutritionProgramRepository = nutritionProgramRepository;
         this.usersMapper = usersMapper;
+        this.currentTrainingProgramRepository = currentTrainingProgramRepository;
     }
 
     public UsersDTO create(UsersDTO usersDTO) {
@@ -36,6 +41,9 @@ public class UsersService {
     }
 
     public UsersDTO getUser(Long id) {
+        //special for Dima( ˘ ³˘)♥︎
+        Objects.requireNonNull(id);
+
         UsersEntity usersEntity = usersRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("User not found"));
         UsersDTO usersDTO= usersMapper.toDTO(usersEntity);
         UsersEntity usersEntity1 = usersMapper.toEntity(usersDTO);
@@ -43,9 +51,20 @@ public class UsersService {
         return usersDTO;
     }
 
-    public UsersDTO updateUser(Long id, UsersDTO usersDTO) {
-        UsersEntity usersEntity = usersRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("User not found"));
+    public UsersDTO updateWeight(Double weight, Long userId) {
+        Objects.requireNonNull(weight);
+        Objects.requireNonNull(userId);
 
+        UsersEntity usersEntity = usersRepository.findById(userId).orElseThrow(()-> new EntityNotFoundException("User not found"));
+        usersEntity.setWeight(weight);
+        usersRepository.save(usersEntity);
+        return usersMapper.toDTO(usersEntity);
+    }
+
+    public UsersDTO updateUser(Long id, UsersDTO usersDTO) {
+        Objects.requireNonNull(id);
+
+        UsersEntity usersEntity = usersRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("User not found"));
 
         if(usersDTO.getName()!=null) {
             usersEntity.setName(usersDTO.getName());
@@ -53,8 +72,8 @@ public class UsersService {
         if (usersDTO.getLogin()!=null) {
             usersEntity.setLogin(usersDTO.getLogin());
         }
-        if(usersDTO.getAge()!=null){
-            usersEntity.setAge(usersDTO.getAge());
+        if(usersDTO.getBirthDay()!=null){
+            usersEntity.setBirthDay(usersDTO.getBirthDay());
         }
         if(usersDTO.getWeight()!=null){
             usersEntity.setWeight(usersDTO.getWeight());
@@ -70,10 +89,10 @@ public class UsersService {
         }
 
         if(usersDTO.getCurrentTrainingProgramId() != null){
-            TrainingsProgramEntity trainingsProgramEntity = trainingsProgramRepository.findById(usersDTO
+           CurrentTrainingProgramEntity currentTrainingProgramEntity = currentTrainingProgramRepository.findById(usersDTO
                     .getCurrentTrainingProgramId()).orElseThrow(()-> new EntityNotFoundException("Training program not found"));
 
-            usersEntity.setCurrentTrainingProgram(trainingsProgramEntity);
+            usersEntity.setCurrentTrainingProgram(currentTrainingProgramEntity);
         }
 
         if(usersDTO.getCurrentNutritionProgramId() != null){
@@ -87,6 +106,9 @@ public class UsersService {
     }
 
     public UsersDTO deleteUser(Long id) {
+        if(id == null) {
+            throw new IllegalArgumentException("Id cannot be null");
+        }
         UsersEntity usersEntity = usersRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("User not found"));
         usersRepository.delete(usersEntity);
         return usersMapper.toDTO(usersEntity);
